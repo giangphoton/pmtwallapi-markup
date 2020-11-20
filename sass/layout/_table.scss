@@ -1,0 +1,32 @@
+%tabledata {
+    font-size: 0.8rem;
+}
+
+.table-responsive {
+    overflow: auto;
+    width: 100%;
+}
+
+.parameter-table {
+
+    & td {
+        @extend %tabledata;
+    }
+
+    & thead td {
+        border-top: none;
+    }
+
+    & tbody tr:last-child td {
+        border-bottom: 1px solid lightgray;
+    }
+}
+
+
+.result-table {
+
+    & td {
+        @extend %tabledata;
+        padding: 0.1rem 0.5rem 0.1rem;
+    }
+}

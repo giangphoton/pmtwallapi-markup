@@ -1,0 +1,28 @@
+.text-orange { color: $color-orange; }
+
+.height-sm { height: 2rem; }
+.height-md { height: 3rem; }
+.height-lg { height: 4rem; }
+.height-xl { height: 8rem; }
+
+.heading-1 {
+    font-weight: 300;
+    font-size: 3rem;
+    line-height: 1;
+}
+
+.heading-4 {
+    font-weight: 600;
+}
+
+.heading-5 {
+
+}
+
+.pink-code {
+    display: inline-block;
+    color: $color-pink;
+    padding: 0.2rem;
+    background: $color-light-1;
+    border: 1px solid lightgray;
+}

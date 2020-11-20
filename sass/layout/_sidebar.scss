@@ -1,0 +1,78 @@
+.sidebar {
+
+    @media only screen and (max-width: $bp-medium) {
+        position: fixed;
+        height: 100vh;
+        overflow: auto;
+        top: 0;
+        z-index: 9999;
+        background-color: $color-white;
+        display: block !important;
+
+        opacity: 0;
+        width: 0;
+        transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+        &.show {
+            opacity: 1;
+            width: 100%;
+        }
+    }
+
+
+    &__name {
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.1rem;
+        color: $color-secondary;
+        display: inline-block;
+        margin-bottom: 0.5rem;
+    }
+
+    &__list {
+        // margin-top: 1rem;
+        margin-bottom: 2rem;
+
+        & li a {
+            color: $color-secondary;
+            padding-top: 0.25rem;
+            padding-bottom: 0.25rem;
+
+            &:hover {
+                color: $color-secondary-dark-1;
+            }
+
+            &.active {
+                color: $color-link-active;
+            }
+        }
+    }
+
+    &__sublist {
+        padding: 0 0.6rem 0;
+
+        & li {
+
+            & a {
+                color: $color-secondary;
+
+                &:hover {
+                    color: $color-secondary-dark-1;
+                }
+
+                & img {
+                    display: none;
+                }
+            }
+
+            &.active img {
+                display: initial;
+                margin-right: 0.3rem;
+            }
+
+            &:not(.active) {
+                padding-left: 1.25rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.4/styles/androidstudio.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+        integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"> -->
+
+    <title>Paymentwall API - Digital Goods</title>
+</head>
+
+<body class="maincontainer">
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="container d-flex justify-content-between">
+            <a class="navbar-brand" href="#">
+                <img src="img/PaymentWallAPI.png" alt="PaymentWallAPI logo">
+            </a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#sidebarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="signup-box--web d-none d-md-block">
+                <span class="text-sm text-secondary">Don't have a PW account?</span>
+                <button class="signup-box__btn btn btn-sm btn-outline-secondary ml-3 text-uppercase">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="row no-gutters">
+        <!--  SIDEBAR  -->
+        <div class="col-md-2 col-xs-12 sidebar navbar-collapse d-md-block p-3" id="sidebarNav">
+            <span class="text-right d-block d-md-none close-btn-box">
+                <img class="btn close-btn" src="./img/close-btn.png" alt="Close button">
+            </span>
+
+            <div class="signup-box--mobile d-md-none mb-3">
+                <button class="signup-box__btn btn btn-sm btn-dark text-uppercase">Sign Up</button>
+                <span class="text-sm text-dark ml-3">Don't have a PW account?</span>
+            </div>
+
+            <div class="sidebar__list">
+                <span class="sidebar__name">PAYALTO</span>
+                <ul class="navbar-nav">
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link active" href="#">Digital Goods</a>
+                        <ul class="sidebar__sublist navbar-nav">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">
+                                    <img src="./img/active-sub-link.png" alt="Active Sub Link">
+                                    Stored Widget Call
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <img src="./img/active-sub-link.png" alt="Active Sub Link">
+                                    Non-stored Widget Call
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <img src="./img/active-sub-link.png" alt="Active Sub Link">
+                                    Optional Parameters
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link" href="#">Virtual Currency</a>
+                        <ul class="sidebar__sublist navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <img src="./img/active-sub-link.png" alt="Active Sub Link">
+                                    Widget Call
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link" href="#">Callback</a>
+                    </li>
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link" href="#">Pingback processing</a>
+                        <ul class="sidebar__sublist navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <img src="./img/active-sub-link.png" alt="Active Sub Link">
+                                    Introduction
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <img src="./img/active-sub-link.png" alt="Active Sub Link">
+                                    HTTP Pingback
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <img src="./img/active-sub-link.png" alt="Active Sub Link">
+                                    Email Pingback
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    <img src="./img/active-sub-link.png" alt="Active Sub Link">
+                                    Expect Response
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar__list">
+                <span class="sidebar__name">BRICK</span>
+                <ul class="navbar-nav">
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link" href="#">Create Onetime Token</a>
+                    </li>
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link" href="#">Charge</a>
+                    </li>
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link" href="#">Subscription</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar__list">
+                <span class="sidebar__name">MINT</span>
+                <ul class="navbar-nav">
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link" href="#">Get Epin</a>
+                    </li>
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link" href="#">Get Balance</a>
+                    </li>
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link" href="#">Get Available Balance</a>
+                    </li>
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link" href="#">Redemption</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar__list">
+                <span class="sidebar__name">MOBIAMO</span>
+                <ul class="navbar-nav">
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link" href="#">Price Points</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="sidebar__list">
+                <span class="sidebar__name">TOOLS API</span>
+                <ul class="navbar-nav">
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link" href="#">Bridge OAuth</a>
+                    </li>
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link" href="#">Cancellation</a>
+                    </li>
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link" href="#">Coupons</a>
+                    </li>
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link" href="#">Delivery Confirmation</a>
+                    </li>
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link" href="#">Invoice</a>
+                    </li>
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link" href="#">Payment Status</a>
+                    </li>
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link" href="#">Payment System</a>
+                    </li>
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link" href="#">Bridge OAuth</a>
+                    </li>
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link" href="#">Product Details</a>
+                    </li>
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link" href="#">Reporting</a>
+                    </li>
+                    <li class="nav-item sidebar__item">
+                        <a class="nav-link" href="#">User Profile</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- DOCS -->
+        <div class="col-md-5 docs p-3 d-none d-md-block">
+            <h1 class="heading-1 mb-3">Digital goods</h1>
+            <p class="mb-4">Digital Goods API is mainly focused on selling In-game virtual items, services and premium
+                membership
+                with PayAlto.</p>
+
+            <h4 class="heading-4">Stored widget call</h4>
+            <p class="mb-4">It shows a widget, where stored products in Products section of Merchant Account are
+                available for
+                payment. Both subscription and one-time payment are supported in our products section.</p>
+
+            <h5 class="heading-5 mb-3">Parameter:</h5>
+            <div class="table-responsive mb-3">
+                <table class="table parameter-table">
+                    <thead>
+                        <tr>
+                            <td scope="col">Name</td>
+                            <td scope="col">Required</td>
+                            <td scope="col">Format</td>
+                            <td scope="col">Description</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td scope="row">key</td>
+                            <td>yes</td>
+                            <td>String(32)</td>
+                            <td>Sample: <br>
+                                048c51f8fc834a1467db96b683f16e70 <br>
+                                Can be found in General Settings of <br>
+                                the Project inside of your Merchant Account
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row">uid</td>
+                            <td>yes</td>
+                            <td>String(64)</td>
+                            <td>Sample: test@paymentwall.com <br>
+                                Not case-sensitive. <br>
+                                ID of the end-user in your system <br>
+                                (usually it is an email) who is viewing <br>
+                                the widget. The maximum length is 64.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row">widget</td>
+                            <td>yes</td>
+                            <td>String</td>
+                            <td>Sample: p1_1 <br>
+                                Widget code. Can be obtained by <br>
+                                Merchant Account -> Projects -> <br>
+                                Widgets
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row">email</td>
+                            <td>yes</td>
+                            <td>String</td>
+                            <td>Sample: test@paymentwall.com <br>
+                                Paymentwall will automatically send a <br>
+                                payment receipt to the user. <br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row">timestamp</td>
+                            <td>yes</td>
+                            <td>String(10)</td>
+                            <td>Sample: 1477985778 <br>
+                                Unix timestamp of the current date
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row">sign_version</td>
+                            <td>no</td>
+                            <td>String</td>
+                            <td>Sample: 2, 3 <br>
+                                Signature Version.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row">sign</td>
+                            <td>no</td>
+                            <td>String</td>
+                            <td>Sample: 7633c3b060fa2ddd41283ff <br>
+                                d4629ab40 <br>
+                                Refer to <a href="#">Signature Calculation</a>.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h5 class="heading-5 mb-3">Result:</h5>
+            <p>You will get a URL or iframe by widget object.</p>
+            <div class="table-responsive mt-5">
+                <table class="table table-borderless result-table">
+                    <tbody>
+                        <tr>
+                            <td>plan</td>
+                            <td rowspan="2">
+                                Identifies the product ID, send back as <code class="pink-code">goodsid</code>
+                                parameter in <br>
+                                <a href="#">pingbacks</a>, eg: productax123
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-secondary">string</td>
+                        </tr>
+                        <tr>
+                            <td class="height-md"></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>period</td>
+                            <td rowspan="3">day/week/month/year</td>
+                        </tr>
+                        <tr>
+                            <td>required</td>
+                        </tr>
+                        <tr>
+                            <td>string</td>
+                        </tr>
+                        <tr>
+                            <td class="height-md"></td>
+                            <td></td>
+                        </tr>
+
+                        <tr>
+                            <td>period_duration</td>
+                            <td rowspan="3">
+                                Number of periods mentioned the period parameter. By default <br>
+                                minimum duration for recurring in 3 days. This can be adjusted <br>
+                                by contacting <a
+                                    href="mailto:devsupport@paymentwall.com">devsupport@paymentwall.com</a>.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="text-orange">required</td>
+                        </tr>
+                        <tr>
+                            <td class="text-secondary">string</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+        <!-- TABS -->
+        <div class="col-md-5 tabs tabs--web bg-dark d-none d-md-block">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="javascript-tab" data-toggle="tab" href="#javascript" role="tab"
+                        aria-controls="javascript" aria-selected="true">Javascript</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="java-tab" data-toggle="tab" href="#java" role="tab" aria-controls="java"
+                        aria-selected="false">Java</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="php-tab" data-toggle="tab" href="#php" role="tab" aria-controls="php"
+                        aria-selected="false">PHP</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="dotnet-tab" data-toggle="tab" href="#dotnet" role="tab"
+                        aria-controls="dotnet" aria-selected="false">.Net</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="python-tab" data-toggle="tab" href="#python" role="tab"
+                        aria-controls="python" aria-selected="false">Python</a>
+                </li>
+            </ul>
+
+            <!-- CODE EXAMPLES -->
+            <div class="tab-content p-4" id="myTabContent">
+                <div class="tab-pane fade show active" id="javascript" role="tabpanel" aria-labelledby="javascript-tab">
+                    <div class="tabs__linkbox">
+                        <span class="tabs__name">Library</span>
+                        <a class="tabs__link" href="#">https://github.com/paymentwall/paymentwall-javascript</a>
+                    </div>
+
+                    <div class="tabs__linkbox">
+                        <span class="tabs__name">Request URL</span>
+                        <a class="tabs__link" href="#">https://api.paymentwall.com/api/subscription/</a>
+                    </div>
+
+                    <div class="tabs__linkbox">
+                        <span class="tabs__name">Request method</span>
+                        <a class="tabs__link" href="#">https://api.paymentwall.com/api/subscription/</a>
+                    </div>
+
+                    <div class="tabs__codebox">
+                        <span class="tabs__name">Initialize</span>
+                        <div class="tabs__example">
+                            <pre><code class="language-javascript">import com.paymentwall.java.Base;
+
+        Base.setAppKey("YOUR_APPLICATION_KEY");
+        Base.setSecretKey("YOUR_SECRET_KEY");
+        Base.setApiType(Base.API_GOODS);</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="tabs__codebox">
+                        <span class="tabs__name">Stored Widget Call</span>
+                        <div class="tabs__example">
+                            <pre><code class="language-javascript">import com.paymentwall.java.Widget;
+import com.paymentwall.java.WidgetBuilder;
+import java.util.LinkedHashMap;
+
+WidgetBuilder widgetBuilder = new WidgetBuilder(userid, widgetcode);
+
+widgetBuilder.setExtraParams(new LinkedHashMap<String, String>(){
+    {
+        put("email", email);
+        put("timestamp", timestamp);
+    }
+});
+
+Widget widget = widgetBuilder.build();</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="tabs__codebox">
+                        <span class="tabs__name">Result Example</span>
+                        <div class="tabs__example">
+                            <pre><code class="language-javascript">    widget.getHtmlCode();</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="tabs__iframe-string">
+                        &lt;iframe src="https://api.paymentwall.com/api/subscription?uid=
+                        paymentwalltest&widget=p1_1&sign_version=3&sign=f05c73860fe
+                        07d37a4b04225b71e8157bfdacafb4a5259bd342db86098d201a
+                        f&key=6e380d3e4954ef8296676f8a41cac692&email=test%40
+                        paymentwall.com&timestamp=1478057670" width="750" frameborder="0"
+                        height="800"&gt;&lt;/iframe&gt;
+                    </div>
+
+
+
+
+
+                </div>
+                <div class="tab-pane fade" id="java" role="tabpanel" aria-labelledby="java-tab">...</div>
+                <div class="tab-pane fade" id="php" role="tabpanel" aria-labelledby="php-tab">...</div>
+                <div class="tab-pane fade" id="dotnet" role="tabpanel" aria-labelledby="dotnet-tab">...</div>
+                <div class="tab-pane fade" id="python" role="tabpanel" aria-labelledby="python-tab">...</div>
+            </div>
+        </div>
+
+        <!-- TABS & DOCS MOBILE -->
+        <div class="col-12 tabs tabs--mobile d-md-none">
+            <ul class="nav nav-tabs bg-dark" id="myTab--mob" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link active" id="javascript-tab--mob" data-toggle="tab" href="#javascript--mob"
+                        role="tab" aria-controls="javascript" aria-selected="true">Javascript</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="java-tab--mob" data-toggle="tab" href="#java--mob" role="tab"
+                        aria-controls="java" aria-selected="false">Java</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="php-tab--mob" data-toggle="tab" href="#php--mob" role="tab"
+                        aria-controls="php" aria-selected="false">PHP</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="dotnet-tab--mob" data-toggle="tab" href="#dotnet--mob" role="tab"
+                        aria-controls="dotnet" aria-selected="false">.Net</a>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <a class="nav-link" id="python-tab--mob" data-toggle="tab" href="#python--mob" role="tab"
+                        aria-controls="python" aria-selected="false">Python</a>
+                </li>
+            </ul>
+
+            <!-- CODE EXAMPLES -->
+            <div class="tab-content p-4" id="myTabContent">
+                <div class="tab-pane fade show active" id="javascript--mob" role="tabpanel"
+                    aria-labelledby="javascript-tab">
+                    <h1 class="heading-1 mb-3">Digital goods</h1>
+                    <p class="mb-4">Digital Goods API is mainly focused on selling In-game virtual items, services and
+                        premium
+                        membership
+                        with PayAlto.</p>
+
+                    <h4 class="heading-4">Stored widget call</h4>
+                    <p class="mb-4">It shows a widget, where stored products in Products section of Merchant Account are
+                        available for
+                        payment. Both subscription and one-time payment are supported in our products section.</p>
+
+                    <div class="tabs__codebox">
+                        <div class="tabs__example">
+                            <pre><code class="language-javascript">import com.paymentwall.java.Base;
+
+        Base.setAppKey("YOUR_APPLICATION_KEY");
+        Base.setSecretKey("YOUR_SECRET_KEY");
+        Base.setApiType(Base.API_GOODS);</code></pre>
+                        </div>
+                    </div>
+
+                    <h5 class="heading-5 mb-3">Parameter:</h5>
+                    <div class="table-responsive mb-3">
+                        <table class="table parameter-table">
+                            <thead>
+                                <tr>
+                                    <td scope="col">Name</td>
+                                    <td scope="col">Required</td>
+                                    <td scope="col">Format</td>
+                                    <td scope="col">Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td scope="row">key</td>
+                                    <td>yes</td>
+                                    <td>String(32)</td>
+                                    <td>Sample: <br>
+                                        048c51f8fc834a1467db96b683f16e70 <br>
+                                        Can be found in General Settings of <br>
+                                        the Project inside of your Merchant Account
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">uid</td>
+                                    <td>yes</td>
+                                    <td>String(64)</td>
+                                    <td>Sample: test@paymentwall.com <br>
+                                        Not case-sensitive. <br>
+                                        ID of the end-user in your system <br>
+                                        (usually it is an email) who is viewing <br>
+                                        the widget. The maximum length is 64.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">widget</td>
+                                    <td>yes</td>
+                                    <td>String</td>
+                                    <td>Sample: p1_1 <br>
+                                        Widget code. Can be obtained by <br>
+                                        Merchant Account -> Projects -> <br>
+                                        Widgets
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">email</td>
+                                    <td>yes</td>
+                                    <td>String</td>
+                                    <td>Sample: test@paymentwall.com <br>
+                                        Paymentwall will automatically send a <br>
+                                        payment receipt to the user. <br>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">timestamp</td>
+                                    <td>yes</td>
+                                    <td>String(10)</td>
+                                    <td>Sample: 1477985778 <br>
+                                        Unix timestamp of the current date
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">sign_version</td>
+                                    <td>no</td>
+                                    <td>String</td>
+                                    <td>Sample: 2, 3 <br>
+                                        Signature Version.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td scope="row">sign</td>
+                                    <td>no</td>
+                                    <td>String</td>
+                                    <td>Sample: 7633c3b060fa2ddd41283ff <br>
+                                        d4629ab40 <br>
+                                        Refer to <a href="#">Signature Calculation</a>.
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="tabs__codebox">
+                        <div class="tabs__example">
+                            <pre><code class="language-javascript">import com.paymentwall.java.Widget;
+import com.paymentwall.java.WidgetBuilder;
+import java.util.LinkedHashMap;
+
+WidgetBuilder widgetBuilder = new WidgetBuilder(userid, widgetcode);
+
+widgetBuilder.setExtraParams(new LinkedHashMap<String, String>(){
+    {
+        put("email", email);
+        put("timestamp", timestamp);
+    }
+});
+
+Widget widget = widgetBuilder.build();</code></pre>
+                        </div>
+                    </div>
+
+                    <h5 class="heading-5 mb-3">Result:</h5>
+                    <p>You will get a URL or iframe by widget object.</p>
+                    <div class="table-responsive mt-5">
+                        <table class="table table-borderless result-table">
+                            <tbody>
+                                <tr>
+                                    <td>plan</td>
+                                    <td rowspan="2">
+                                        Identifies the product ID, send back as <code class="pink-code">goodsid</code>
+                                        parameter in <br>
+                                        <a href="#">pingbacks</a>, eg: productax123
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-secondary">string</td>
+                                </tr>
+                                <tr>
+                                    <td class="height-md"></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td>period</td>
+                                    <td rowspan="3">day/week/month/year</td>
+                                </tr>
+                                <tr>
+                                    <td>required</td>
+                                </tr>
+                                <tr>
+                                    <td>string</td>
+                                </tr>
+                                <tr>
+                                    <td class="height-md"></td>
+                                    <td></td>
+                                </tr>
+
+                                <tr>
+                                    <td>period_duration</td>
+                                    <td rowspan="3">
+                                        Number of periods mentioned the period parameter. By default <br>
+                                        minimum duration for recurring in 3 days. This can be adjusted <br>
+                                        by contacting <a
+                                            href="mailto:devsupport@paymentwall.com">devsupport@paymentwall.com</a>.
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-orange">required</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-secondary">string</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+                <div class="tab-pane fade" id="java--mob" role="tabpanel" aria-labelledby="java-tab">...</div>
+                <div class="tab-pane fade" id="php--mob" role="tabpanel" aria-labelledby="php-tab">...</div>
+                <div class="tab-pane fade" id="dotnet--mob" role="tabpanel" aria-labelledby="dotnet-tab">...</div>
+                <div class="tab-pane fade" id="python--mob" role="tabpanel" aria-labelledby="python-tab">...</div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+        integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous">
+    </script> -->
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/highlight.min.js"></script>
+    <!-- and it's easy to individually load additional languages -->
+    <!-- <script charset="UTF-8"
+        src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.4/languages/javascript.min.js">
+    </script> -->
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+
+
+    <script src="./node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="./node_modules/popper.js/dist/popper.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./script/main.js"></script>
+</body>
+
+</html>
